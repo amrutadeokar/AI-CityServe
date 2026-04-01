@@ -3,7 +3,6 @@
   background: #f5f6fa;
 }
 
-/* Hero */
 .hero {
   text-align: center;
   padding: 60px 20px;
@@ -11,7 +10,6 @@
   color: rgb(10, 9, 9);
 }
 
-/* Highlight */
 .highlight {
   padding: 40px;
   text-align: center;
@@ -26,7 +24,7 @@
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-/* Timeline */
+
 .timeline {
   position: relative;
   margin: 40px auto;
@@ -58,14 +56,12 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-/* Top Row */
 .top-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-/* NEW Badge */
 .new-badge {
   background: red;
   color: white;
@@ -74,7 +70,6 @@
   border-radius: 8px;
 }
 
-/* Category */
 .category {
   display: inline-block;
   background: #e7f1ff;
@@ -85,7 +80,6 @@
   margin: 8px 0;
 }
 
-/* Footer */
 .footer {
   background: #253351;
   color: white;
