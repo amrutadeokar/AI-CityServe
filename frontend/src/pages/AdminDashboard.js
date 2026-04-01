@@ -60,14 +60,12 @@ function AdminDashboard() {
   ];
   const deptEmojis = ["🧹","💧","🛣️","💡","🏥","🏫","🏠","🚌","⚙️"];
 
-  // Request notification permission
   useEffect(() => {
     if (Notification.permission !== "granted") {
       Notification.requestPermission();
     }
   }, []);
 
-  // Unlock audio after first user click
   useEffect(() => {
     const unlockAudio = () => {
       const audio = highPriorityAudio.current;
@@ -80,7 +78,6 @@ function AdminDashboard() {
     window.addEventListener("click", unlockAudio);
   }, []);
 
-  // Fetch complaints & feedbacks with real-time polling
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -88,7 +85,6 @@ function AdminDashboard() {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        // Play alarm once at login if any high-priority complaint exists
         if (firstLoad.current) {
           const hasHighPriority = res.data.some(c => c.priority === "High");
           if (hasHighPriority) {
@@ -100,12 +96,10 @@ function AdminDashboard() {
           firstLoad.current = false;
         }
 
-        // Detect new complaints
         const newComplaints = res.data.filter(
           c => !complaints.some(old => old._id === c._id)
         );
 
-        // Trigger notifications
         newComplaints.forEach(c => {
           if (Notification.permission === "granted") {
             new Notification(
@@ -170,7 +164,6 @@ function AdminDashboard() {
     setExpandedPriority(prev => ({ ...prev, [priority]: !prev[priority] }));
   };
 
-  // 🤖 AI Recommended Action
 const getSuggestion = (c) => {
   const desc = c.description?.toLowerCase() || "";
 
@@ -197,7 +190,6 @@ const getSuggestion = (c) => {
   return "Assign to department and monitor progress.";
 };
 
-  /* ================= KPI CALCULATIONS ================= */
   const totalComplaints = complaints.length;
   const pendingCount = complaints.filter(c => c.status === "Pending").length;
   const resolvedCount = complaints.filter(c => c.status === "Resolved").length;
@@ -252,7 +244,6 @@ const getSuggestion = (c) => {
     ? complaints.filter(c => c.department === selectedDept)
     : [];
 
-    // ✅ Area-wise grouping
 const areaGroups = complaints.reduce((acc, complaint) => {
 const area = complaint.location 
   ? complaint.location.split(",")[0] 
@@ -370,7 +361,6 @@ const area = complaint.location
               })}
              <h2>Area-wise Issues</h2>
 
-{/* 🔥 AREA CARDS */}
 <div className="area-grid">
   {Object.keys(areaGroups).map((area, idx) => (
     <div
@@ -391,7 +381,6 @@ const area = complaint.location
   ))}
 </div>
 
-{/* 🔥 EXPANDED AREA DETAILS */}
 {selectedArea && (
   <div className="area-details">
     <h3>Complaints in {selectedArea}</h3>
