@@ -1,4 +1,4 @@
-/* Reset */
+
 *{
   box-sizing:border-box;
   margin:0;
@@ -6,13 +6,11 @@
   font-family:'Poppins',sans-serif;
 }
 
-/* Body */
 body{
   background:linear-gradient(135deg,#eef2f7,#d7dfea) ;
   min-height:100vh;
 }
 
-/* Header */
 header{
   width:100%;
   padding:18px 40px;
@@ -43,7 +41,6 @@ header nav a:hover{
   color:#4a90e2;
 }
 
-/* Footer */
 footer{
   background:#253351;
   color:#fff;
@@ -53,7 +50,6 @@ footer{
   margin-top:60px;
 }
 
-/* Form Container */
 .form-container{
   max-width:550px;
   margin:70px auto;
@@ -68,7 +64,6 @@ footer{
   transform:translateY(-4px);
 }
 
-/* Heading */
 .form-container h2{
   text-align:center;
   font-size:28px;
@@ -76,7 +71,6 @@ footer{
   color:#222;
 }
 
-/* Inputs */
 input[type="text"],
 textarea,
 input[type="file"]{
@@ -100,7 +94,6 @@ textarea{
   resize:vertical;
 }
 
-/* File Upload */
 input[type="file"]{
   border:2px dashed #ccc;
   background:#f7f9fc;
@@ -111,7 +104,6 @@ input[type="file"]:hover{
   border-color:#4a90e2;
 }
 
-/* Location wrapper */
 .location-input-wrapper{
   position:relative;
   margin-bottom:22px;
@@ -121,7 +113,6 @@ input[type="file"]:hover{
   padding-right:45px;
 }
 
-/* Map icon */
 .location-icon{
   position:absolute;
   right:15px;
@@ -136,7 +127,6 @@ input[type="file"]:hover{
   color:#1f5fa5;
 }
 
-/* Submit button */
 button[type="submit"]{
   width:100%;
   padding:14px;
@@ -155,7 +145,6 @@ button[type="submit"]:hover{
   transform:translateY(-2px);
 }
 
-/* Map modal */
 .map-modal{
   position:fixed;
   inset:0;
@@ -178,7 +167,6 @@ button[type="submit"]:hover{
   flex-direction:column;
 }
 
-/* Close button */
 .close-modal{
   position:absolute;
   right:15px;
@@ -193,14 +181,12 @@ button[type="submit"]:hover{
   color:#e74c3c;
 }
 
-/* Map container */
 .gmaps-container{
   flex:1;
   border-radius:10px;
   overflow:hidden;
 }
 
-/* Responsive */
 @media(max-width:600px){
 
   header{
