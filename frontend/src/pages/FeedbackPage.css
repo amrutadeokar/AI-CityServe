@@ -5,15 +5,6 @@
   min-height: 100vh;
 }
 
-/* Header */
-
-/* .feedback-header {
-  
-  text-align: center;
-  padding: 16px;
-  background: #253351;
-  color: white;
-} */
 
 .feedback-container {
   display: flex;
@@ -24,7 +15,7 @@
 }
 
 .feedback-header {
-  width: 100vw;              /* full width */
+  width: 100vw;             
   background: #253351;
   color: white;
 
@@ -34,9 +25,9 @@
 
 
 
-  margin: 0;                /* ❌ remove spacing */
-  border-radius: 0;         /* ❌ remove rounded corners */
-  box-shadow: none;         /* ❌ remove shadow */
+  margin: 0;                
+  border-radius: 0;         
+  box-shadow: none;        
 }
 
 .feedback-header h1 {
@@ -50,7 +41,6 @@
   font-size: 13px;
 }
 
-/* Page */
 
 .feedback-page {
   flex: 1;
@@ -61,7 +51,6 @@
   padding: 35px 0;
 }
 
-/* Card */
 
 .feedback-form {
   background: white;
@@ -82,7 +71,6 @@
   color: #253351;
 }
 
-/* Rating rows */
 
 .rating-row {
   display: flex;
@@ -96,7 +84,6 @@
   color: #444;
 }
 
-/* Stars */
 
 .stars {
   display: flex;
@@ -118,7 +105,6 @@
   color: #f4b400;
 }
 
-/* Satisfaction */
 
 .feedback-section {
   margin-top: 14px;
@@ -127,7 +113,6 @@
   color: #253351;
 }
 
-/* Emoji cards */
 
 .emoji-row {
   display: flex;
@@ -165,7 +150,6 @@
   font-size: 12px;
 }
 
-/* Comments */
 
 .feedback-form textarea {
   width: 100%;
@@ -178,14 +162,11 @@
   resize: none;
 }
 
-/* Checkbox */
-
 .checkbox {
   margin-top: 10px;
   font-size: 14px;
 }
 
-/* Button */
 
 .feedback-form button {
   width: 100%;
@@ -202,8 +183,6 @@
   background: #2f49c6;
 }
 
-/* Success */
-
 .feedback-success {
   background: white;
   padding: 28px;
@@ -217,7 +196,6 @@
   color: #28a745;
 }
 
-/* Footer */
 
 .feedback-footer {
   text-align: center;
