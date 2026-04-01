@@ -7,21 +7,17 @@ from sklearn.metrics import classification_report, accuracy_score
 from imblearn.over_sampling import RandomOverSampler
 from department_classifier import predict_department
 
+# LOAD DATASET
 
-# ===========================
-# 1️⃣ LOAD DATASET
-# ===========================
 df = pd.read_csv("dataset/311_cleaned_mapped.csv")
 print("Dataset Loaded Successfully!")
 print(df.head())
 
-# ✅ Fix Street Light complaints mapping
 df.loc[
     df["Problem (formerly Complaint Type)"].str.contains("Street Light", case=False, na=False),
     "Department_Category"
 ] = "Electricity"
 
-# ✅ Fix Pothole complaints mapping
 df.loc[
     df["Problem (formerly Complaint Type)"].str.contains("Pothole", case=False, na=False),
     "Department_Category"
@@ -29,12 +25,10 @@ df.loc[
 
 import pandas as pd
 
-# Load your existing dataset
 df = pd.read_csv("dataset/311_cleaned_mapped.csv")
 
-# Synthetic complaints for balancing
 synthetic = pd.DataFrame([
-    # === Education (20 samples) ===
+    
     {"Problem (formerly Complaint Type)": "School classroom ceiling leaking during rain", "Agency Name": "Department of Education", "Department_Category": "Education"},
     {"Problem (formerly Complaint Type)": "Playground equipment damaged in municipal school", "Agency Name": "Department of Education", "Department_Category": "Education"},
     {"Problem (formerly Complaint Type)": "No electricity in school computer lab", "Agency Name": "Department of Education", "Department_Category": "Education"},
@@ -56,7 +50,6 @@ synthetic = pd.DataFrame([
     {"Problem (formerly Complaint Type)": "School sanitation workers absent", "Agency Name": "Department of Education", "Department_Category": "Education"},
     {"Problem (formerly Complaint Type)": "School classroom paint peeling", "Agency Name": "Department of Education", "Department_Category": "Education"},
 
-    # === Electricity (20 samples) ===
     {"Problem (formerly Complaint Type)": "Transformer burst causing power outage", "Agency Name": "Department of Buildings", "Department_Category": "Electricity"},
     {"Problem (formerly Complaint Type)": "Street lights not working for past 3 days", "Agency Name": "Department of Transportation", "Department_Category": "Electricity"},
     {"Problem (formerly Complaint Type)": "Frequent electricity cuts in residential area", "Agency Name": "Department of Buildings", "Department_Category": "Electricity"},
@@ -78,7 +71,6 @@ synthetic = pd.DataFrame([
     {"Problem (formerly Complaint Type)": "Street lights broken after storm", "Agency Name": "Department of Transportation", "Department_Category": "Electricity"},
     {"Problem (formerly Complaint Type)": "Transformer noise disturbing residents", "Agency Name": "Department of Buildings", "Department_Category": "Electricity"},
 
-    # === Health (20 samples) ===
     {"Problem (formerly Complaint Type)": "Hospital emergency ward overcrowded", "Agency Name": "Department of Health and Mental Hygiene", "Department_Category": "Health"},
     {"Problem (formerly Complaint Type)": "Food poisoning reported at local restaurant", "Agency Name": "Department of Health and Mental Hygiene", "Department_Category": "Health"},
     {"Problem (formerly Complaint Type)": "Rodent infestation in public park", "Agency Name": "Department of Health and Mental Hygiene", "Department_Category": "Health"},
@@ -98,20 +90,18 @@ synthetic = pd.DataFrame([
     {"Problem (formerly Complaint Type)": "Hospital emergency equipment not working", "Agency Name": "Department of Health and Mental Hygiene", "Department_Category": "Health"},
     {"Problem (formerly Complaint Type)": "Noise pollution from factory near hospital", "Agency Name": "Department of Health and Mental Hygiene", "Department_Category": "Health"},
     {"Problem (formerly Complaint Type)": "Rodents"}
-]) # Merge synthetic complaints into dataset df = pd.concat([df, synthetic], ignore_index=True)
-# ===========================
-# 2️⃣ PRIORITY LABEL CREATION
-# ===========================
+]) 
+
+# PRIORITY LABEL CREATION
+
 def assign_priority(text, department):
     text = str(text).lower()
 
     score = 0
 
-    # HIGH severity signals
     high_words = ["fire", "burst", "explosion", "accident", "injury", "gas leak", "danger"]
     score += 3 * sum(word in text for word in high_words)
 
-    # MEDIUM severity signals (broader + semantic)
     medium_words = [
         "broken", "not working", "damaged",
         "cut", "outage", "power", "electricity",
@@ -121,14 +111,9 @@ def assign_priority(text, department):
     ]
     score += 2 * sum(word in text for word in medium_words)
 
-    # TIME indicators (VERY IMPORTANT for civic complaints)
     time_words = ["since", "days", "weeks", "months"]
     score += 2 * sum(word in text for word in time_words)
 
-    # ===========================
-    # NEW RULE: Duration-based HIGH priority
-    # Example: "since 2 days", "for 3 days", "5 days"
-    # ===========================
     import re
 
     duration_match = re.search(r'(\d+)\s*(day|days|week|weeks|month|months)', text)
@@ -136,11 +121,9 @@ def assign_priority(text, department):
     if duration_match:
         number = int(duration_match.group(1))
 
-        # if more than 1 day/week/month → HIGH
         if number >= 2:
             return "High"
 
-    # FINAL DECISION
     if score >= 5:
         return "High"
     elif score >= 2:
@@ -159,14 +142,12 @@ df["Priority"] = df.apply(
 print("\nPriority Distribution:")
 print(df["Priority"].value_counts())
 
-# ===========================
-# 3️⃣ TRAIN PRIORITY MODEL WITH OVERSAMPLING
-# ===========================
+# TRAIN PRIORITY MODEL WITH OVERSAMPLING
+
 vectorizer_p = TfidfVectorizer(stop_words='english')
 X_p = vectorizer_p.fit_transform(df["Problem (formerly Complaint Type)"])
 y_p = df["Priority"]
 
-# Oversample minority classes
 ros = RandomOverSampler(random_state=42)
 X_resampled_p, y_resampled_p = ros.fit_resample(X_p, y_p)
 
@@ -183,19 +164,16 @@ print("\n=== Priority Model Evaluation ===")
 print("Accuracy:", accuracy_score(y_test_p, y_pred_p))
 print(classification_report(y_test_p, y_pred_p, zero_division=0))
 
-# Save model + vectorizer
 joblib.dump(priority_model, "priority_model.pkl")
 joblib.dump(vectorizer_p, "priority_vectorizer.pkl")
 print("\nPriority Model Saved Successfully!")
 
-# ===========================
-# 4️⃣ PREDICTION FUNCTION (RULE + ML)
-# ===========================
+# PREDICTION FUNCTION 
+
 def predict_priority(complaint_text, department):
     text = str(complaint_text).lower()
     department = str(department).lower()
 
-    # Rule-based High priority override
     high_keywords = ["flood", "burst", "fire", "emergency", "injury", "accident", "danger"]
     if any(word in text for word in high_keywords):
         print("⚠️ ALERT: High-priority complaint detected! Immediate attention required!")
@@ -205,7 +183,6 @@ def predict_priority(complaint_text, department):
         print("⚠️ ALERT: High-priority complaint detected! Immediate attention required!")
         return "High"
 
-    # Otherwise, ML prediction
     text_vec = vectorizer_p.transform([complaint_text])
     predicted_priority = priority_model.predict(text_vec)[0]
 
@@ -214,23 +191,21 @@ def predict_priority(complaint_text, department):
 
     return predicted_priority
 
-# ===========================
-# 5️⃣ TEST PREDICTION
-# ===========================
+# TEST PREDICTION
+
 if __name__ == "__main__":
     test_complaint = "Street light not working"
     test_department = "Roads"
     priority = predict_priority(test_complaint, test_department)
     print("Predicted Priority:", priority)
 
-# ===========================
-# 6️⃣ TRAIN DEPARTMENT MODEL WITH OVERSAMPLING
-# ===========================
+#  TRAIN DEPARTMENT MODEL WITH OVERSAMPLING
+
 vectorizer_d = TfidfVectorizer(stop_words='english')
 X_d = vectorizer_d.fit_transform(df["Problem (formerly Complaint Type)"])
 y_d = df["Department_Category"]
 
-# Oversample minority classes
+
 X_resampled_d, y_resampled_d = ros.fit_resample(X_d, y_d)
 
 X_train_d, X_test_d, y_train_d, y_test_d = train_test_split(
@@ -246,15 +221,12 @@ print("\n=== Department Model Evaluation ===")
 print("Accuracy:", accuracy_score(y_test_d, y_pred_d))
 print(classification_report(y_test_d, y_pred_d, zero_division=0))
 
-# Save model + vectorizer
 joblib.dump(department_model, "department_model.pkl")
 joblib.dump(vectorizer_d, "department_vectorizer.pkl")
 print("\nDepartment Model Saved Successfully!")
 
+#  DEPARTMENT PREDICTION FUNCTION (RULE + ML)
 
-# ===========================
-# 7️⃣ DEPARTMENT PREDICTION FUNCTION (RULE + ML)
-# ===========================
 def predict_department(description: str) -> str:
     """Predict department using ML model, with keyword overrides."""
     if department_model is None or vectorizer_d is None:
@@ -262,7 +234,6 @@ def predict_department(description: str) -> str:
 
     desc = description.lower()
 
-    # ✅ Keyword overrides
     if "street light" in desc or "lamp post" in desc:
         return "Electricity"
     if "school" in desc or "classroom" in desc or "education" in desc:
@@ -270,7 +241,6 @@ def predict_department(description: str) -> str:
     if "hospital" in desc or "clinic" in desc:
         return "Health"
 
-    # ML fallback
     text_vec = vectorizer_d.transform([description])
     department = department_model.predict(text_vec)[0]
 
