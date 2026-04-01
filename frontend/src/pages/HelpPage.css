@@ -1,14 +1,12 @@
-/* Smooth Page Feel */
+
 .help-page {
   background: #f4f6fb;
 }
 
-/* Section spacing */
 section {
   margin-bottom: 40px;
 }
 
-/* Emergency Section */
 .emergency-section {
   padding: 50px 20px;
   text-align: center;
@@ -21,7 +19,6 @@ section {
   margin-top: 30px;
 }
 
-/* Card */
 .emergency-card {
   padding: 25px;
   border-radius: 16px;
@@ -33,7 +30,6 @@ section {
   overflow: hidden;
 }
 
-/* Glow Effect */
 .emergency-card::before {
   content: "";
   position: absolute;
@@ -57,21 +53,19 @@ section {
   font-size: 18px;
 }
 
-/* Colors */
 .police { background: linear-gradient(135deg, #007bff, #0056b3); }
 .ambulance { background: linear-gradient(135deg, #dc3545, #a71d2a); }
 .fire { background: linear-gradient(135deg, #fd7e14, #c05600); }
 .women { background: linear-gradient(135deg, #e83e8c, #b02a5b); }
 .civic { background: linear-gradient(135deg, #28a745, #1e7e34); }
 
-/* Color Coding */
 .police { background: #007bff; }
 .ambulance { background: #dc3545; }
 .fire { background: #fd7e14; }
 .women { background: #e83e8c; }
 .civic { background: #28a745; }
 
-/* Quick Actions */
+
 .quick-actions {
   display: flex;
   justify-content: center;
@@ -93,7 +87,6 @@ section {
 }
 
 
-/* FAQ Section */
 .help-page .faq {
   padding: 170px 20px;
   display: flex;
