@@ -1,9 +1,8 @@
-# update_feedback_sentiment.py
+
 from transformers import pipeline
 from app.database import feedback_collection  # MongoDB collection
 from bson import ObjectId
 
-# ---------------- HUGGING FACE SENTIMENT ---------------- #
 sentiment_model = pipeline(
     "sentiment-analysis",
     model="distilbert-base-uncased-finetuned-sst-2-english"
@@ -24,7 +23,6 @@ def get_sentiment(text: str):
     return "Positive" if label == "POSITIVE" else "Negative"
 
 
-# ---------------- BATCH UPDATE EXISTING FEEDBACK ---------------- #
 def update_all_feedback_sentiment():
     all_feedbacks = feedback_collection.find()
     count = 0
