@@ -1,20 +1,20 @@
-/* Page wrapper takes full height */
+
 .page-wrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-/* Make main content grow to push footer down */
+
 .page-wrapper .content {
-  flex: 1;          /* fill remaining space */
+  flex: 1;         
   max-width: 1000px;
   margin: 40px auto;
   padding: 20px;
   
 }
 
-/* Footer will now stay at bottom */
+
 .page-footer {
   text-align: center;
   padding: 14px;
@@ -22,7 +22,7 @@
   color: white;
   font-size: 13px;
 }
-/* Header */
+
 .page-header {
   background: #253351;
   color: white;
@@ -48,7 +48,6 @@
 }
 
 
-/* Page title */
 .content h2 {
   font-size: 28px;
   margin-bottom: 25px;
@@ -56,7 +55,7 @@
   text-align: center;
 }
 
-/* Complaint card */
+
 .complaint-card {
   display: flex;
   gap: 20px;
@@ -73,7 +72,7 @@
   box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
-/* Complaint image */
+
 .complaint-img {
   width: 180px;
   height: 140px;
@@ -81,7 +80,7 @@
   border-radius: 10px;
 }
 
-/* Complaint details container */
+
 .complaint-details {
   flex: 1;
   display: flex;
@@ -89,25 +88,25 @@
   gap: 10px;
 }
 
-/* Each row */
+
 .detail-row {
   display: flex;
   gap: 10px;
 }
 
-/* Labels */
+
 .label {
   font-weight: 600;
   color: #444;
   min-width: 110px;
 }
 
-/* Values */
+
 .value {
   color: #555;
 }
 
-/* Status styling */
+
 .status {
   font-weight: 600;
   padding: 4px 10px;
@@ -116,7 +115,7 @@
   width: fit-content;
 }
 
-/* Status colors */
+
 .status.pending {
   background: #fff3cd;
   color: #856404;
@@ -137,14 +136,14 @@
   color: #721c24;
 }
 
-/* No complaints text */
+
 .content p {
   text-align: center;
   color: #777;
   font-size: 16px;
 }
 
-/* Responsive */
+
 @media (max-width: 700px) {
   .complaint-card {
     flex-direction: column;
