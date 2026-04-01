@@ -24,7 +24,6 @@ function HelpPage() {
   return (
     <div className="help-page">
 
-      {/* HEADER */}
       <nav className="nav-bar">
         <h1 onClick={() => navigate("/")}>AI CityServe</h1>
         <div className="nav-links">
@@ -35,13 +34,11 @@ function HelpPage() {
         </div>
       </nav>
 
-      {/* HERO */}
       <section className="hero">
         <h2>🛠 Help & Support</h2>
         <p>Instant help, emergency access & smart assistance</p>
       </section>
 
-      {/* 🚨 IMPORTANT NUMBERS */}
       <section className="emergency-section">
         <h3>🚨 Emergency Contacts</h3>
 
@@ -68,7 +65,6 @@ function HelpPage() {
         </div>
       </section>
 
-      {/* ⚡ QUICK ACTIONS */}
       <section className="quick-actions">
         <div className="action-card" onClick={() => navigate("/feedback")}>
           📩 Report Issue
@@ -83,7 +79,6 @@ function HelpPage() {
         </div>
       </section>
 
-      {/* ❓ FAQ SECTION */}
      <section className="faq">
   <h3>❓ Smart Help Center</h3>
 
@@ -107,7 +102,6 @@ function HelpPage() {
   ))}
 </section>
 
-      {/* FOOTER */}
       <footer className="footer">
         <p>© 2026 AI CityServe</p>
         <div className="footer-links">
