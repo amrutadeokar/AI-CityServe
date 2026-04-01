@@ -7,7 +7,6 @@ from bson import ObjectId
 router = APIRouter()
 
 
-# ---------------- SIMPLE SENTIMENT ANALYZER ---------------- #
 def analyze_sentiment(text: str):
 
     if not text or text.strip() == "":
@@ -28,7 +27,6 @@ def analyze_sentiment(text: str):
     pos_score = sum(word in text for word in positive_words)
     neg_score = sum(word in text for word in negative_words)
 
-    # ✅ NEW: detect mixed sentiment
     if "but" in text:
         return "Neutral"
 
@@ -41,8 +39,6 @@ def analyze_sentiment(text: str):
     else:
         return "Neutral"
 
-
-# ---------------- SUBMIT FEEDBACK ---------------- #
 @router.post("/submit-feedback")
 def submit_feedback(feedback: Feedback):
 
@@ -58,7 +54,6 @@ def submit_feedback(feedback: Feedback):
 
     result = feedback_collection.insert_one(feedback_dict)
 
-    # ✅ Only update if complaint_id exists
     if feedback.complaint_id:
         complaints_collection.update_one(
             {"_id": ObjectId(feedback.complaint_id)},
@@ -71,7 +66,6 @@ def submit_feedback(feedback: Feedback):
         "id": str(result.inserted_id)
     }
 
-# ---------------- GET ALL FEEDBACK ---------------- #
 @router.get("/all-feedback")
 def get_feedback():
     feedbacks = []
@@ -86,7 +80,6 @@ def get_ai_suggested_action(text: str, priority: str):
 
     text = text.lower()
 
-    # 🔥 keyword-based NLP logic
     if "water" in text or "leak" in text:
         return "Assign to Water Department immediately"
 
@@ -99,7 +92,6 @@ def get_ai_suggested_action(text: str, priority: str):
     elif "garbage" in text or "waste" in text:
         return "Dispatch sanitation team"
 
-    # fallback using priority
     if priority == "High":
         return "Immediate attention required"
     elif priority == "Medium":
