@@ -7,9 +7,8 @@ from bson import ObjectId
 import os
 import uuid
 from jose import jwt, JWTError
-from datetime import datetime   # ✅ NEW IMPORT ADDED
+from datetime import datetime  
 from typing import Optional
-# from app.utils.language import detect_language, to_english
 
 from app.main import predict_priority_safe, final_predict_department
 
@@ -21,8 +20,7 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 SECRET_KEY = "your_super_secret_key_here"
 ALGORITHM = "HS256"
 
-
-# ---------- CREATE COMPLAINT ---------- #
+# CREATE COMPLAINT  
 @router.post("/create")
 async def create_complaint(
     description: str = Form(...),
@@ -34,12 +32,7 @@ async def create_complaint(
     department = final_predict_department(description)
     predicted_priority = predict_priority_safe(description, department)
 
-    # lang = detect_language(description)
 
-
-    # description_en = to_english(description)
-
-# 3. Run ML models ONLY on English text
     department = final_predict_department(description)
     predicted_priority = predict_priority_safe(description, department)
 
@@ -60,9 +53,6 @@ async def create_complaint(
         "user_email": current_user["email"],
         "feedback_given": False,
 
-        # ===========================
-        # NEW: STATUS TIMELINE
-        # ===========================
         "status_history": [
             {
                 "status": "Created",
@@ -79,7 +69,6 @@ async def create_complaint(
     }
 
 
-# ---------- GET COMPLAINTS ---------- #
 @router.get("/all")
 def get_complaints(current_user: dict = Depends(get_current_user)):
 
@@ -103,12 +92,11 @@ def get_complaints(current_user: dict = Depends(get_current_user)):
     return complaints
 
 
-# ---------- UPDATE STATUS (WITH TIMELINE) ---------- #
 @router.put("/update-status/{complaint_id}")
 def update_status(
     complaint_id: str,
     status: str = Form(...),
-    note: str = Form(""),   # ✅ NEW OPTIONAL NOTE
+    note: str = Form(""), 
     current_user: dict = Depends(get_current_user)
 ):
 
@@ -137,7 +125,6 @@ def update_status(
     return {"message": "Status updated with timeline"}
 
 
-# ---------- GET COMPLAINTS NEEDING FEEDBACK ---------- #
 @router.get("/pending-feedback")
 def get_pending_feedback(current_user: dict = Depends(get_current_user)):
 
@@ -155,7 +142,6 @@ def get_pending_feedback(current_user: dict = Depends(get_current_user)):
     return complaints
 
 
-# ---------- USER COMPLAINTS FOR CHAT ---------- #
 @router.get("/user-list")
 def get_user_complaints_for_chat(current_user: dict = Depends(get_current_user)):
 
@@ -175,7 +161,6 @@ def get_user_complaints_for_chat(current_user: dict = Depends(get_current_user))
     ]
 
 
-# ---------- WEBSOCKET ---------- #
 @router.websocket("/ws/complaints")
 async def complaints_ws(websocket: WebSocket):
 
