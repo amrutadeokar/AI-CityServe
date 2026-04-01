@@ -10,9 +10,6 @@ function Login() {
   const [showSOS, setShowSOS] = useState(false);
   const [language, setLanguage] = useState("en");
 
- 
-
-  // ✅ LOCATION STATES
   const [userLocation, setUserLocation] = useState("");
   const [coords, setCoords] = useState(null);
 
@@ -26,7 +23,6 @@ function Login() {
   }
 }, [showSOS]);
 
-  // ✅ GET LOCATION FUNCTION (FIXED)
   const getLocation = () => {
   setUserLocation("Detecting location...");
 
@@ -42,7 +38,6 @@ function Login() {
 
       setCoords({ lat, lng });
 
-      // Show temporary coords
       setUserLocation(`Lat: ${lat}, Lng: ${lng}`);
 
       try {
@@ -147,10 +142,9 @@ function Login() {
 
       {showPopup && ( <div className="popup-overlay" onClick={() => setShowPopup(false)}> <div className="popup-box" onClick={(e) => e.stopPropagation()}> {/* Close Button */} <span className="popup-close" onClick={() => setShowPopup(false)}> &times; </span> {/* Icon */} <div className="popup-icon">🌆</div> {/* Title */} <h2>Together, Let's Engage In Good Governance</h2> {/* Subtitle */} <p>Join the platform to raise issues, track progress, and make your city better.</p> {/* Buttons */} <div className="popup-actions"> <button className="popup-btn primary" onClick={() => navigate("/login-form")} > Login </button> <button className="popup-btn secondary" onClick={() => navigate("/register-form")} > Register </button> </div> </div> </div> )}
 
-      {/* CHAT */}
+
       {showChat && <ChatBot onClose={() => setShowChat(false)} />}
 
-      {/* 🚨 SOS BUTTON (FIXED) */}
       <button
         className="sos-button"
         onClick={() => setShowSOS(true)}
@@ -158,7 +152,7 @@ function Login() {
         🚨 SOS
       </button>
 
-      {/* 🚨 SOS POPUP */}
+  
       {showSOS && (
         <div className="sos-overlay" onClick={() => setShowSOS(false)}>
           <div className="sos-popup" onClick={(e) => e.stopPropagation()}>
