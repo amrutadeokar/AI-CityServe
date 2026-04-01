@@ -16,7 +16,6 @@ def get_sentiment(text: str):
     label = result["label"]
     score = result["score"]
     
-    # If model is not confident, classify as Neutral
     if score < 0.6:
         return "Neutral"
     
@@ -31,11 +30,9 @@ def update_all_feedback_sentiment():
         comment = fb.get("comments", "").strip()
         rating = fb.get("overall_experience") or fb.get("rating", 3)
 
-        # Case 1: If comment exists → use AI model
         if comment:
             sentiment = get_sentiment(comment)
 
-        # Case 2: If comment is empty → use rating
         else:
             if rating >= 4:
                 sentiment = "Positive"
