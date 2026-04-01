@@ -1,12 +1,10 @@
 import os
 import pandas as pd
 
-# Get AI-CITYSERVE project root
 PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(__file__), "..", "..")
 )
 
-# Correct dataset path (since dataset is inside ai-cityserve-ML folder)
 DATASET_PATH = os.path.join(
     PROJECT_ROOT,
     "ai-cityserve-ML",
@@ -17,11 +15,9 @@ DATASET_PATH = os.path.join(
 print("PROJECT_ROOT:", PROJECT_ROOT)
 print("Loading dataset from:", DATASET_PATH)
 
-# Load dataset
 df = pd.read_csv(DATASET_PATH)
 print("✅ Dataset loaded successfully!")
 
-# Step 1: Define mapping dictionary
 DEPARTMENT_MAP = {
     "Department of Sanitation": "Sanitation",
     "Department of Environmental Protection": "Water Supply",
@@ -34,14 +30,12 @@ DEPARTMENT_MAP = {
     "Department of Education": "Education",
 }
 
-# Step 2: Apply mapping
 df["Department_Category"] = (
     df["Agency Name"]
     .map(DEPARTMENT_MAP)
     .fillna("Others")
 )
 
-# Step 3: Keyword override logic
 def override_department(description, current_dept):
     text = str(description).lower()
 
@@ -74,7 +68,7 @@ df["Department_Category"] = df.apply(
     axis=1
 )
 
-# Save mapped dataset back into ai-cityserve-ML/dataset
+
 OUTPUT_PATH = os.path.join(
     PROJECT_ROOT,
     "ai-cityserve-ML",
