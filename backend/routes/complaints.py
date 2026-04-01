@@ -20,7 +20,6 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 SECRET_KEY = "your_super_secret_key_here"
 ALGORITHM = "HS256"
 
-# CREATE COMPLAINT  
 @router.post("/create")
 async def create_complaint(
     description: str = Form(...),
