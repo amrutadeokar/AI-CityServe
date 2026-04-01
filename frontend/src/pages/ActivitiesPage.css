@@ -1,4 +1,4 @@
-/* Scoped to ActivitiesPage only */
+
 .activities-page {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
@@ -6,7 +6,6 @@
   min-height: 100vh;
 }
 
-/* Header */
 .activities-page .nav-bar {
   background-color: #253351;
   padding: 15px 30px;
@@ -153,7 +152,6 @@
   color: #0d6efd;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .activities-page .hero-section h2 {
     font-size: 2rem;
