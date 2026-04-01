@@ -18,7 +18,6 @@ def predict_priority(complaint_text, department):
     text = str(complaint_text).lower()
     department = str(department).lower()
 
-    # Rule-based overrides
     high_keywords = ["flood", "burst", "fire", "emergency", "injury", "accident", "danger"]
     medium_keywords = ["urgent", "blocked", "broken", "not working", "damaged", "leak"]
 
@@ -31,12 +30,10 @@ def predict_priority(complaint_text, department):
     if any(word in text for word in medium_keywords):
         return "Medium"
 
-    # ML prediction fallback
     if vectorizer is not None and model is not None:
         X = vectorizer.transform([complaint_text])
         prediction = model.predict(X)[0]
 
-        # Normalize prediction
         if isinstance(prediction, (np.integer, int)):
             label_map = {0: "Low", 1: "Medium", 2: "High"}
             return label_map.get(int(prediction), "Low")
