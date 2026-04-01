@@ -14,7 +14,7 @@ function FeedbackPage() {
   satisfaction: "",
   comments: "",
   anonymous: false,
-  complaint_id: ""   // ✅ ADD THIS
+  complaint_id: ""   
 });
 
   const [showMessage, setShowMessage] = useState(false);
@@ -41,10 +41,8 @@ function FeedbackPage() {
   const handleSubmit = async (e) => {
   e.preventDefault();
 
-  // ✅ Get complaint_id (you MUST have this stored somewhere)
   const complaintId = localStorage.getItem("complaint_id");
 
-  // ✅ Create updated data with complaint_id
   const updatedData = {
     ...feedbackData,
     complaint_id: complaintId
@@ -56,14 +54,13 @@ function FeedbackPage() {
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(updatedData)   // ✅ send correct data
+      body: JSON.stringify(updatedData)   
     });
 
     const data = await response.json();
 
-    console.log("Response:", data);  // ✅ helpful for debugging
+    console.log("Response:", data);  
 
-    // ❗ Optional: check if backend returned error
     if (!response.ok) {
       console.error("Backend error:", JSON.stringify(data, null, 2));
       return;
