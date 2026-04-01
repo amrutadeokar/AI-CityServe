@@ -1,4 +1,4 @@
-/* ================= PAGE WRAPPER ================= */
+
 .admin-dashboard-page {
   font-family: 'Inter', sans-serif;
   background-color: #ffff;
@@ -39,7 +39,6 @@
 }
 
 
-/* ================= SIDEBAR ================= */
 /* .admin-dashboard-page .sidebar {
   width: 300px;
   background: #737575;
@@ -80,7 +79,6 @@
 } */
 
 
-/* ── Sidebar ── */
 .admin-dashboard-page .sidebar {
   width: 240px;
   background: #253351 !important;
@@ -125,7 +123,6 @@
 }
 
 
-/* ================= DEPARTMENT GRID ================= */
 .admin-dashboard-page .dept-grid {
   display: grid;
   grid-template-columns: repeat(3, 160px); /* fixed 3 columns */
@@ -157,8 +154,6 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Department Colors */
-/* ================= COLOR THEMES ================= */
 .admin-dashboard-page .color-0 { background: linear-gradient(135deg, #dbeafe, #bfdbfe); }
 .admin-dashboard-page .color-1 { background: linear-gradient(135deg, #fef9c3, #fde68a); }
 .admin-dashboard-page .color-2 { background: linear-gradient(135deg, #fecaca, #fca5a5); }
@@ -170,7 +165,6 @@
 .admin-dashboard-page .color-8 { background: linear-gradient(135deg, #fee2e2, #fda4af); }
 
 
-/* Emoji inside card */
 .admin-dashboard-page .dept-card::before {
   content: attr(data-emoji);
   font-size: 32px;
@@ -179,7 +173,7 @@
 }
 
 .admin-dashboard-page .emoji {
-  font-size: 40px;        /* 🔥 BIG emoji */
+  font-size: 40px;        
   line-height: 1;
   margin-bottom: 14px;
   display: block;
@@ -187,10 +181,9 @@
   transition: transform 0.3s ease;
 }
 
-/* ================= COMPLAINT BOX ================= */
 
 .complaints-section {
-  min-height: 500px;   /* 👈 THIS PREVENTS SHIFT */
+  min-height: 500px;  
   transition: all 0.3s ease;
   
 }
@@ -204,7 +197,7 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.08);
   display: flex;
   gap: 20px;
-  align-items: flex-start; /* top-aligned image and text */
+  align-items: flex-start;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -250,7 +243,6 @@
   border-color: #888;
 }
 
-/* ================= PRIORITY SECTIONS ================= */
 .admin-dashboard-page .priority-section {
   margin-bottom: 20px;
 }
@@ -282,19 +274,19 @@
   gap: 12px;
 }
 
-/* Priority header colors */
+
 .priority-header.high {
-  background: #ffcccc; /* light red for High */
+  background: #ffcccc; 
 }
 
 .priority-header.medium {
-  background: #fff0b3; /* light yellow for Medium */
+  background: #fff0b3; 
 }
 
 .priority-header.low {
-  background: #ccffcc; /* light green for Low */
+  background: #ccffcc; 
 }
-/* ================= KPI SECTION ================= */
+
 .admin-dashboard-page .kpi-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -311,7 +303,6 @@
   font-weight: 600;
 }
 
-/* ================= CHARTS ================= */
 .admin-dashboard-page .chart-container {
   width: 100%;
   max-width: 900px;
@@ -348,7 +339,6 @@
   max-height: 260px !important;
 }
 
-/* Flicker effect for high priority complaints */
 .high-priority {
   animation: flicker 1s infinite;
 }
@@ -359,16 +349,15 @@
   100% { background-color: #ffe5e5; }
 }
 
-/* Compact Notification Panel */
 .admin-dashboard-page .notification-panel {
   position:  absolute;
   right: 20px;
   top: 100px;
-  width: 220px;       /* smaller width */
-  max-height: 60vh;   /* shorter height */
+  width: 220px;      
+  max-height: 60vh;  
   overflow-y: auto;
   z-index: 999;
-  font-size: 13px;    /* slightly smaller text */
+  font-size: 13px;   
 }
 
 .notification {
@@ -388,7 +377,7 @@
 .high-priority-hover:hover {
   background-color: #ffe5e5 !important;
 }
-/* High-priority complaint hover */
+
 .admin-dashboard-page .complaint-box.high-priority:hover {
   background-color: #ffe0e0; /* light red */
   box-shadow: 0 8px 18px rgba(255,0,0,0.3);
@@ -396,7 +385,6 @@
   transition: all 0.2s ease;
 }
 
-/* ================= RESPONSIVE ================= */
 @media screen and (max-width: 1200px) {
   .admin-dashboard-page .dept-grid {
     grid-template-columns: repeat(2, 160px);
@@ -423,7 +411,6 @@
   }
 }
 
-/* Feedback Sentiment Badges */
 .feedback-sentiment {
   font-weight: 600;
   padding: 4px 8px;
@@ -435,7 +422,7 @@
 .feedback-neutral  { background: #fef3c7; color: #78350f; }
 .feedback-negative { background: #fee2e2; color: #991b1b; }
 
-/* Feedback Dropdown */
+
 .feedback-dropdown {
   margin-top: 20px;
 }
@@ -482,7 +469,6 @@
   margin-top: 20px;
 }
 
-/* Card */
 .area-card {
   width: 150px;
   height: 150px;
@@ -501,25 +487,22 @@
   transition: all 0.2s ease;
 }
 
-/* Hover effect (adds life) */
 .area-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.1);
 }
 
-/* 🔢 BIG NUMBER */
 .area-count {
-  font-size: 18px;       /* 🔥 bigger */
+  font-size: 18px;       
   font-weight: 700;
-  color: #040404;        /* nice indigo */
+  color: #040404;        
   line-height: 1;
 }
 
-/* 📍 AREA NAME */
 .area-name {
   margin-top: 8px;
   font-size: 13px;
-  font-weight: 600;      /* 🔥 bold clean */
+  font-weight: 600;    
   color: #050505;
 
   display: -webkit-box;
@@ -528,9 +511,9 @@
   overflow: hidden;
 }
 
-.area-card.high { background: #fee2e2; }   /* red */
-.area-card.medium { background: #fef3c7; } /* yellow */
-.area-card.low { background: #dcfce7; }    /* green */
+.area-card.high { background: #fee2e2; }   
+.area-card.medium { background: #fef3c7; } 
+.area-card.low { background: #dcfce7; }    
 
 .ai-suggestion {
   margin-top: 8px;
