@@ -43,7 +43,6 @@ function AnnouncementsPage() {
   return (
     <div className="announcements-page">
 
-      {/* Header */}
       <nav className="nav-bar">
   <h1 onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
     AI CityServe
@@ -56,13 +55,11 @@ function AnnouncementsPage() {
   </div>
 </nav>
 
-      {/* Hero */}
       <section className="hero">
         <h2>📣 Smart City Updates</h2>
         <p>Live updates powered by AI insights</p>
       </section>
 
-      {/* AI Highlight */}
       <section className="highlight">
         <h3>🔥 Priority Alert</h3>
         <div className="highlight-card">
@@ -72,15 +69,12 @@ function AnnouncementsPage() {
         </div>
       </section>
 
-      {/* Timeline Feed */}
       <section className="timeline">
         {announcements.map(item => (
           <div key={item.id} className="timeline-item">
             
-            {/* Dot */}
             <div className="timeline-dot"></div>
 
-            {/* Content */}
             <div className="timeline-content">
               <div className="top-row">
                 <h4>{item.title}</h4>
@@ -96,7 +90,6 @@ function AnnouncementsPage() {
         ))}
       </section>
 
-      {/* Footer */}
       <footer className="footer">
         <p>© 2026 AI CityServe</p>
         <div className="footer-links">
