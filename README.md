@@ -126,7 +126,7 @@ AI-CityServe/
 ![Complaint Form](images/FileComplaintForm.png)
 
 ### 📝 File a complaint
-![Complaint](images/FileComplaintForm.png)
+![Complaint](images/Complaint-Filing.png)
 
 ### 📍 Location Integration
 ![Location](images/location.png)
