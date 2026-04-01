@@ -6,7 +6,6 @@ body {
 
 .login-page {
   min-height: 100vh;
-  /* Creates the dark blue top half and grey bottom half */
   background: linear-gradient(to bottom, #253351 45%, #f3f4f6 45%);
 }
 
@@ -16,7 +15,7 @@ body {
   align-items: center;
   padding: 10px 60px;
   color: white;
-  background-color: #1d283e;   /* ✅ deep navy header */
+  background-color: #1d283e;   
 }
 
 .nav-bar h1 {
@@ -40,7 +39,6 @@ body {
   border: none;
 }
 
-/* Hero */
 .hero-section {
   text-align: center;
   color: white;
@@ -48,34 +46,32 @@ body {
 }
 
 .hero-section h2 {
-  font-size: 30px;   /* ✅ smaller tagline */
-  margin-bottom: 15px;   /* ✅ more breathing room */
+  font-size: 30px;   
+  margin-bottom: 15px;  
 }
 
 .hero-section p {
   font-size: 16px;
-  margin-bottom: 5px;   /* ✅ extra spacing before search bar */
+  margin-bottom: 5px;  
 }
 
-
-/* Exact Search Bar Match */
 .search-bar {
   display: flex !important;
   justify-content: center !important;
-  align-items: stretch !important; /* Ensures input and button are same height */
+  align-items: stretch !important; 
   margin: 30px auto 0 auto !important;
   max-width: 400px !important;
   
-  background: transparent !important; /* Removes the white box behind the bar */
-  box-shadow: none !important; /* Removes any shadow from the container */
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
 .search-bar input {
   flex: 1 !important;
   padding: 0 15px !important;
-  height: 45px !important; /* Specific height from the image */
+  height: 45px !important; 
   border: 1px solid #ccc !important;
-  border-right: none !important; /* Removes double border between input and button */
+  border-right: none !important;
   border-radius: 4px 0 0 4px !important;
   outline: none !important;
   font-size: 14px !important;
@@ -83,7 +79,7 @@ body {
 }
 
 .search-btn {
-  background-color: #3b82f6 !important; /* The royal blue from the image */
+  background-color: #3b82f6 !important;
   color: white !important;
   border: 1px solid #3b82f6 !important;
   padding: 0 25px !important;
@@ -100,7 +96,7 @@ body {
 .search-btn:hover {
   background-color: #2563eb !important;
 }
-/* Dashboard Container */
+
 .dashboard-container {
   display: flex;
   flex-direction: column;
@@ -117,7 +113,7 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.1);
 }
 .info-wrapper {
-  margin-top: 80px;   /* pushes announcements/help/feedback/chat down */
+  margin-top: 80px;   
 }
 
 .info-grid {
@@ -128,7 +124,6 @@ body {
   max-width: 950px;
 }
 
-/* Card styling */
 .info-card {
   background: #ffff !important;
   padding: 25px;
@@ -145,7 +140,6 @@ body {
   box-shadow: 0 10px 25px rgba(0,0,0,0.12);
 }
 
-/* Icon circle */
 .info-icon.blue-circle {
   width: 50px;
   height: 50px;
@@ -159,7 +153,6 @@ body {
   flex-shrink: 0;
 }
 
-/* Text block */
 .info-text h3 {
   margin: 0;
   font-size: 18px;
@@ -195,7 +188,6 @@ body {
   background-color: #303f9f;
 }
 
-/* Overlay with blur + dark tint */
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -214,15 +206,14 @@ body {
   animation: fadeIn 0.25s ease-in-out;
 }
 
-/* Popup Card (Wider + Less Height) */
 .popup-box {
   background: linear-gradient(135deg, #ffffff, #f8fafc);
 
-  padding: 22px 26px;              /* reduced height */
+  padding: 22px 26px;             
   border-radius: 16px;
   text-align: center;
 
-  max-width: 420px;                /* increased width */
+  max-width: 420px;                
   width: 92%;
 
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -231,7 +222,6 @@ body {
   position: relative;
 }
 
-/* Close button */
 .popup-close {
   position: absolute;
   top: 10px;
@@ -247,38 +237,36 @@ body {
   transform: rotate(90deg);
 }
 
-/* Icon */
 .popup-icon {
   font-size: 34px;
-  margin-bottom: 6px;              /* reduced spacing */
+  margin-bottom: 6px;             
 }
 
-/* Title */
 .popup-box h2 {
-  margin-bottom: 6px;              /* reduced spacing */
+  margin-bottom: 6px;             
   font-size: 20px;
   font-weight: 700;
   color: #1e293b;
 }
 
-/* Subtitle */
+
 .popup-box p {
   font-size: 13px;
   color: #64748b;
-  margin-bottom: 16px;             /* reduced spacing */
+  margin-bottom: 16px;            
   line-height: 1.4;
 }
 
-/* Buttons container */
+
 .popup-actions {
   display: flex;
   gap: 10px;
 }
 
-/* Buttons */
+
 .popup-btn {
-  flex: 1;                         /* equal width buttons */
-  padding: 10px 22px;              /* reduced height */
+  flex: 1;                         
+  padding: 10px 22px;             
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -288,7 +276,7 @@ body {
   transition: all 0.25s ease;
 }
 
-/* Primary button */
+
 .popup-btn.primary {
   background: linear-gradient(135deg, #4361ee, #3a0ca3);
   color: white;
@@ -299,7 +287,6 @@ body {
   box-shadow: 0 6px 16px rgba(67, 97, 238, 0.35);
 }
 
-/* Secondary button */
 .popup-btn.secondary {
   background: #e2e8f0;
   color: #1e293b;
@@ -310,7 +297,7 @@ body {
   transform: translateY(-1px);
 }
 
-/* Animations */
+
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -327,7 +314,7 @@ body {
   }
 }
 
-/* 🚨 SOS BUTTON */
+
 .sos-button {
   position: fixed;
   bottom: 20px;
@@ -347,7 +334,7 @@ body {
   background: darkred;
 }
 
-/* Overlay */
+
 .sos-overlay {
   position: fixed;
   top: 0;
@@ -360,7 +347,7 @@ body {
   align-items: center;
   z-index: 1000;
 }
-/* Overlay */
+
 .sos-overlay {
   position: fixed;
   top: 0;
@@ -376,7 +363,7 @@ body {
 
 
 
-/* 🌑 Overlay */
+
 .sos-overlay {
   position: fixed;
   top: 0;
@@ -391,12 +378,12 @@ body {
   z-index: 1000;
 }
 
-/* 🚨 Popup */
+
 .sos-popup {
   background: linear-gradient(135deg, #ffffff, #f8fafc);
   padding: 40px;
   border-radius: 22px;
-  width: 480px;              /* 🔥 BIGGER */
+  width: 480px;              
   max-width: 92%;
   text-align: center;
   position: relative;
@@ -404,7 +391,7 @@ body {
   animation: popupZoom 0.35s ease;
 }
 
-/* ✨ Animation */
+
 @keyframes popupZoom {
   from {
     transform: scale(0.85) translateY(30px);
@@ -416,7 +403,7 @@ body {
   }
 }
 
-/* ❌ Close */
+
 .close-btn {
   position: absolute;
   right: 18px;
@@ -432,7 +419,7 @@ body {
   transform: rotate(90deg);
 }
 
-/* 🚨 Heading */
+
 .sos-popup h3 {
   font-size: 24px;
   margin-bottom: 25px;
@@ -440,7 +427,7 @@ body {
   letter-spacing: 0.5px;
 }
 
-/* 🚓 Emergency Cards */
+
 .sos-item {
   margin: 18px 0;
   font-size: 17px;
@@ -468,7 +455,7 @@ body {
   text-decoration: none;
 }
 
-/* ➖ Divider */
+
 .sos-popup hr {
   margin: 30px 0;
   border: none;
@@ -476,7 +463,6 @@ body {
   background: linear-gradient(to right, transparent, #e5e7eb, transparent);
 }
 
-/* 📍 Location Section */
 .user-location {
   font-size: 15px;
   color: #1f2937;
@@ -488,7 +474,7 @@ body {
   box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
 }
 
-/* 🚓 Police Link */
+
 .sos-link {
   display: block;
   margin: 15px 0;
@@ -506,7 +492,6 @@ body {
   transform: scale(1.03);
 }
 
-/* 📤 Share Button */
 .share-btn {
   margin-top: 15px;
   padding: 14px;
@@ -525,7 +510,7 @@ body {
   transform: scale(1.05);
 }
 
-/* 🔴 OPTIONAL: Pulse effect for SOS feel */
+
 .sos-popup::before {
   content: "";
   position: absolute;
@@ -536,7 +521,7 @@ body {
   border-radius: 25px;
   border: 2px solid rgba(239, 68, 68, 0.3);
   animation: pulse 2s infinite;
-  pointer-events: none; /* ✅ allow clicks through */
+  pointer-events: none; 
 }
 
 @keyframes pulse {
