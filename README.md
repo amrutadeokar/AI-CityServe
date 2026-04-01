@@ -109,7 +109,65 @@ AI-CityServe/
 
 ## 📸 Screenshots
 
-(Add your screenshots here 👇)
+### 🏠 Landing Page
+![Landing Page](images/LandingPage.png)
+
+### 🔐 Login Page
+![Login](images/login.png)
+
+---
+
+## 👤 User Module
+
+### 👤 User Dashboard
+![User Dashboard](images/UserDashboard.png)
+
+### 📝 File Complaint Form
+![Complaint Form](images/FileComplaintForm.png)
+
+### 📍 Location Integration
+![Location](images/location.png)
+
+### 🧠 AI Analysis
+![AI Analysis](images/AI-analysis.png)
+
+### 📋 User Complaints
+![User Complaints](images/UserAllComplaints.png)
+
+---
+
+## 👨‍💼 Admin Module
+
+### 👨‍💼 Admin Dashboard
+![Admin Dashboard](images/AdminDashboard.png)
+
+### 📊 Complaints Area Wise
+![Area Wise](images/ComplaintsAreaWise.png)
+
+### 🧠 Complaint Categorization
+![Categorization](images/Compliant-categorization.png)
+
+### 📋 Complaints on Admin Dashboard
+![Admin Complaints](images/Complaints-Displayed-on-AdminDashboard.png)
+
+### 📊 Analytics Dashboard
+![Analytics](images/Analytics.png)
+
+---
+
+## 💬 Additional Features
+
+### 🤖 Chatbot
+![Chatbot](images/ChatBot.png)
+
+### 📝 User Feedback
+![User Feedback](images/UserFeedback.png)
+
+### 📊 Feedback Analysis
+![Feedback Analysis](images/FeedbackAnalysis.png)
+
+### 🚨 SOS Service
+![SOS](images/SOS-service.png)
 
 ---
 
