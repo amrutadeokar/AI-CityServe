@@ -2,8 +2,6 @@
 
 ## 📌 Overview
 
-## 📌 Overview
-
 AI CityServe is a smart complaint management system that enhances communication between citizens and municipal authorities using Artificial Intelligence. The platform allows users to submit complaints with location and supporting evidence, track their status, and provide feedback, ensuring transparency and ease of use.
 On the administrative side, the system automatically classifies complaints into relevant departments and prioritizes them using sentiment analysis. High-priority complaints are highlighted for immediate attention, while administrators can manage and update complaint statuses in real time.
 The system also includes an analytics dashboard for monitoring complaint trends, along with additional features such as a chatbot, SOS functionality, and help support, making it a comprehensive and user-centric smart city solution.
