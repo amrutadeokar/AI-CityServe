@@ -1,4 +1,4 @@
-/* Reset & Base */
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,14 +17,12 @@ body {
   min-height: 100vh;
 }
 
-/* Page wrapper */
 .page-wrapper {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-/* --- HEADER (Kept as requested) --- */
 header {
   width: 100%;
   padding: 20px 40px;
@@ -57,7 +55,6 @@ header nav a:hover {
   text-decoration: underline;
 }
 
-/* --- IMPROVED FORM UI --- */
 
 .form-container {
   max-width: 580px;
@@ -94,7 +91,6 @@ header nav a:hover {
   border-radius: 10px;
 }
 
-/* Refined Input Fields */
 input[type="text"],
 textarea {
   width: 100%;
@@ -122,7 +118,6 @@ textarea {
   resize: none;
 }
 
-/* Custom File Upload Styling */
 input[type="file"] {
   width: 100%;
   padding: 12px;
@@ -142,7 +137,6 @@ input[type="file"]:hover {
   color: #3b82f6;
 }
 
-/* Location input icon adjustment */
 .location-input-wrapper {
   position: relative;
   margin-bottom: 24px;
@@ -169,7 +163,6 @@ input[type="file"]:hover {
   transform: translateY(-50%) scale(1.15);
 }
 
-/* Modern Gradient Button */
 button[type="submit"] {
   width: 100%;
   padding: 16px;
@@ -194,7 +187,6 @@ button[type="submit"]:active {
   transform: translateY(1px);
 }
 
-/* --- FOOTER (Kept as requested) --- */
 footer {
   background: #253351;
   color: #fff;
@@ -218,8 +210,8 @@ footer {
 }
 
 .map-modal-content {
-  width: 420px;        /* square width */
-  height: 420px;       /* square height */
+  width: 420px;        
+  height: 420px;      
   background: #fff;
   border-radius: 20px;
   display: flex;
@@ -232,7 +224,7 @@ footer {
 .gmaps-container {
   flex: 1;
   width: 100%;
-  height: 100%;        /* ensures map fills modal */
+  height: 100%;       
 }
 
 .close-modal {
@@ -251,7 +243,6 @@ footer {
   margin-bottom: 8px;
 }
 
-/* Responsive */
 @media (max-width: 640px) {
   .form-container {
     margin: 30px 15px;
@@ -262,7 +253,6 @@ footer {
   }
 }
 
-/* Badges */
 .badge {
   padding: 5px 12px;
   border-radius: 20px;
@@ -270,23 +260,20 @@ footer {
   font-size: 13px;
 }
 
-/* Category Colors */
 .category.water { background: #0d6efd; }
 .category.traffic { background: #fd7e14; }
 .category.safety { background: #dc3545; }
 
-/* Priority Colors */
 .priority.high { background: #dc3545; }
 .priority.medium { background: #ffc107; color: black; }
 .priority.low { background: #28a745; }
 
 
-/* Animation */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
-/* ================= AI RESULT POPUP ================= */
+
 
 .result-overlay {
   position: fixed;
@@ -347,12 +334,10 @@ footer {
   color: white;
 }
 
-/* Department */
 .category {
   background: linear-gradient(135deg, #64748b, #475569);
 }
 
-/* Priority */
 .priority.high {
   background: linear-gradient(135deg, #ef4444, #b91c1c);
 }
