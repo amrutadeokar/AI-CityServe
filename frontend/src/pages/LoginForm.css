@@ -1,6 +1,4 @@
-/* ============================
-   Page layout (Login form page only)
-   ============================ */
+
 .login-form-page {
   min-height: 100vh;
   display: flex;
@@ -8,9 +6,7 @@
   background: #f3f4f6; /* only applies here */
 }
 
-/* ============================
-   Header
-   ============================ */
+
 .login-form-page .nav-bar {
   display: flex;
   justify-content: space-between; /* logo left, button right */
@@ -36,9 +32,6 @@
   background: #2563eb;
 }
 
-/* ============================
-   Login Card container
-   ============================ */
 .login-form-page .login-container {
   flex: 1;
   display: flex;
@@ -46,9 +39,7 @@
   align-items: center;
 }
 
-/* ============================
-   Login Card
-   ============================ */
+
 .login-form-page .login-card {
   background: white;
   padding: 30px;
@@ -129,9 +120,7 @@
   text-decoration: underline;
 }
 
-/* ============================
-   Footer
-   ============================ */
+
 .login-form-page .footer {
   text-align: center;
   padding: 14px;
