@@ -1,0 +1,141 @@
+/* ============================
+   Page layout (Login form page only)
+   ============================ */
+.login-form-page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f3f4f6; /* only applies here */
+}
+
+/* ============================
+   Header
+   ============================ */
+.login-form-page .nav-bar {
+  display: flex;
+  justify-content: space-between; /* logo left, button right */
+  align-items: center;
+  background: #253351;
+  color: white;
+  padding: 16px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.login-form-page .home-btn {
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.login-form-page .home-btn:hover {
+  background: #2563eb;
+}
+
+/* ============================
+   Login Card container
+   ============================ */
+.login-form-page .login-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ============================
+   Login Card
+   ============================ */
+.login-form-page .login-card {
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  width: 320px;
+  text-align: center;
+}
+
+.login-form-page .login-card h2 {
+  margin-bottom: 20px;
+  color: #1e3a8a;
+}
+
+.login-form-page .role-buttons {
+  margin-bottom: 15px;
+}
+
+.login-form-page .role-buttons button {
+  margin: 5px;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #e5e7eb;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.login-form-page .role-buttons .active {
+  background: #3b82f6;
+  color: white;
+}
+
+.login-form-page .login-card input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+}
+
+.login-form-page .login-btn {
+  width: 100%;
+  padding: 12px;
+  background: #1e3a8a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.login-form-page .login-btn:hover {
+  background: #2563eb;
+}
+
+.login-form-page .login-links {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.login-form-page .login-links a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.login-form-page .login-links a:hover {
+  text-decoration: underline;
+}
+
+.login-form-page .register-link {
+  color: #1e3a8a;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login-form-page .register-link:hover {
+  text-decoration: underline;
+}
+
+/* ============================
+   Footer
+   ============================ */
+.login-form-page .footer {
+  text-align: center;
+  padding: 14px;
+  background: #253351;
+  color: white;
+  font-size: 13px;
+}

@@ -1,0 +1,77 @@
+body {
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f0f4ff, #dbeafe);
+    margin: 0;
+  }
+  
+  .register-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 320px;
+    margin: 80px auto;
+    text-align: center;
+  }
+  
+  .register-card h2 {
+    margin-bottom: 20px;
+    color: #1e3a8a;
+  }
+  
+  .register-card input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
+  .register-btn {
+    width: 100%;
+    padding: 12px;
+    background: #10b981; /* green for register */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .register-btn:hover {
+    background: #059669;
+  }
+  
+  .register-card p {
+    margin-top: 15px;
+    font-size: 14px;
+  }
+  
+  .login-link {
+    color: #1e3a8a;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  .login-link:hover {
+    text-decoration: underline;
+  }
+
+  .error-message {
+    color: #e53935;
+    background: #fdecea;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  
+  .success-message {
+    color: #2e7d32;
+    background: #e8f5e9;
+    padding: 8px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+  }
+  

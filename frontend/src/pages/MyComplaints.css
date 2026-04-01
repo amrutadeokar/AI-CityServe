@@ -1,0 +1,161 @@
+/* Page wrapper takes full height */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Make main content grow to push footer down */
+.page-wrapper .content {
+  flex: 1;          /* fill remaining space */
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  
+}
+
+/* Footer will now stay at bottom */
+.page-footer {
+  text-align: center;
+  padding: 14px;
+  background: #253351;
+  color: white;
+  font-size: 13px;
+}
+/* Header */
+.page-header {
+  background: #253351;
+  color: white;
+  padding: 18px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page-header h1 {
+  font-size: 22px;
+}
+
+.page-header nav a {
+  color: white;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.page-header nav a:hover {
+  color: #4a90e2;
+}
+
+
+/* Page title */
+.content h2 {
+  font-size: 28px;
+  margin-bottom: 25px;
+  color: #253351;
+  text-align: center;
+}
+
+/* Complaint card */
+.complaint-card {
+  display: flex;
+  gap: 20px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 14px;
+  margin-bottom: 20px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.complaint-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* Complaint image */
+.complaint-img {
+  width: 180px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Complaint details container */
+.complaint-details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Each row */
+.detail-row {
+  display: flex;
+  gap: 10px;
+}
+
+/* Labels */
+.label {
+  font-weight: 600;
+  color: #444;
+  min-width: 110px;
+}
+
+/* Values */
+.value {
+  color: #555;
+}
+
+/* Status styling */
+.status {
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 8px;
+  font-size: 14px;
+  width: fit-content;
+}
+
+/* Status colors */
+.status.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.status.inprogress {
+  background: #d1ecf1;
+  color: #0c5460;
+}
+
+.status.resolved {
+  background: #d4edda;
+  color: #155724;
+}
+
+.status.rejected {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* No complaints text */
+.content p {
+  text-align: center;
+  color: #777;
+  font-size: 16px;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+  .complaint-card {
+    flex-direction: column;
+  }
+
+  .complaint-img {
+    width: 100%;
+    height: 200px;
+  }
+
+  .detail-row {
+    flex-direction: column;
+  }
+}

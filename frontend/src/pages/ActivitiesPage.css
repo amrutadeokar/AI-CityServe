@@ -1,0 +1,176 @@
+/* Scoped to ActivitiesPage only */
+.activities-page {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #f5f6fa;
+  min-height: 100vh;
+}
+
+/* Header */
+.activities-page .nav-bar {
+  background-color: #253351;
+  padding: 15px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.activities-page .nav-bar h1 {
+  margin: 0;
+  cursor: pointer;
+}
+
+.activities-page .nav-links span {
+  margin-left: 25px;
+  cursor: pointer;
+  color: white;
+  transition: color 0.3s;
+}
+
+.activities-page .nav-links span:hover {
+  color: #0d6efd;
+}
+
+/* Hero Section */
+.activities-page .hero-section {
+  text-align: center;
+  padding: 60px 20px 40px;
+  background: linear-gradient(90deg, #f5f6fa 0%, #f5f6fa 100%);
+  color: white;
+  border-radius: 0 0 20px 20px;
+}
+
+.activities-page .hero-section h2 {
+  font-size: 35px;
+  margin-bottom: 10px;
+}
+
+.activities-page .hero-section p {
+  font-size: 15px;
+}
+
+/* Activities Grid */
+.activities-page .activities-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.activities-page .activities-section h3 {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.activities-page .activities-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 20px;
+  justify-items: center;
+  margin: 0 auto;
+  max-width: 1100px; /* optional: to center content */
+}
+
+
+.activities-page .activity-card {
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  width: 300px;
+}
+
+.activities-page .activity-card span {
+  font-size: 2.5rem;
+}
+
+.activities-page .activity-card h4 {
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+.activities-page .activity-card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+.activities-page .activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* CTA Section */
+.activities-page .cta-section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.activities-page .cta-section h3 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.activities-page .cta-section p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #555;
+}
+
+.activities-page .cta-section button {
+  background-color: #0d6efd;
+  color: white;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.activities-page .cta-section button:hover {
+  background-color: #0748b3;
+  transform: translateY(-5px);
+}
+
+/* Footer */
+.activities-page .footer {
+  background-color: #253351;
+  color: white;
+  text-align: center;
+  padding: 25px 20px;
+  margin-top: 50px;
+}
+
+.activities-page .footer .footer-links span {
+  margin: 0 10px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.activities-page .footer .footer-links span:hover {
+  color: #0d6efd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .activities-page .hero-section h2 {
+    font-size: 2rem;
+  }
+  .activities-page .activity-card span {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .activities-page .activities-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+  }
+}
+
+@media (max-width: 768px) {
+  .activities-page .activities-grid {
+    grid-template-columns: 1fr; /* 1 column on mobile */
+  }
+}

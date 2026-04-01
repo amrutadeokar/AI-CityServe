@@ -1,0 +1,18 @@
+{
+    "navbar": {
+      "getToKnow": "Get To Know",
+      "activities": "Activities",
+      "search": "Search",
+      "profile": "Profile"
+    },
+    "home": {
+      "tagline": "Smart City Services at Your Fingertips",
+      "subtitle": "Find Trusted Services Near You",
+      "searchPlaceholder": "Search for services"
+    },
+    "popup": {
+      "heading": "Together, Let's Engage In Good Governance",
+      "login": "Login",
+      "register": "Register"
+    }
+  }

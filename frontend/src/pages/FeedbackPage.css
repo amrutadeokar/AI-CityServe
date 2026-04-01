@@ -1,0 +1,230 @@
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Header */
+
+/* .feedback-header {
+  
+  text-align: center;
+  padding: 16px;
+  background: #253351;
+  color: white;
+} */
+
+.feedback-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+.feedback-header {
+  width: 100vw;              /* full width */
+  background: #253351;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+
+
+  margin: 0;                /* ❌ remove spacing */
+  border-radius: 0;         /* ❌ remove rounded corners */
+  box-shadow: none;         /* ❌ remove shadow */
+}
+
+.feedback-header h1 {
+  margin: 0;
+  font-size: 24px;
+  
+}
+
+.feedback-header p {
+  margin-top: 4px;
+  font-size: 13px;
+}
+
+/* Page */
+
+.feedback-page {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f4f6fb;
+  padding: 35px 0;
+}
+
+/* Card */
+
+.feedback-form {
+  background: white;
+  padding: 28px;
+  width: 380px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease;
+}
+
+.feedback-form:hover {
+  transform: translateY(-2px);
+}
+
+.feedback-form h2 {
+  text-align: center;
+  margin-bottom: 18px;
+  color: #253351;
+}
+
+/* Rating rows */
+
+.rating-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.rating-label {
+  font-weight: 500;
+  color: #444;
+}
+
+/* Stars */
+
+.stars {
+  display: flex;
+  gap: 4px;
+}
+
+.star {
+  font-size: 23px;
+  color: #d1d1d1;
+  cursor: pointer;
+  transition: transform 0.15s ease, color 0.15s ease;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
+.star.active {
+  color: #f4b400;
+}
+
+/* Satisfaction */
+
+.feedback-section {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-size: 15px;
+  color: #253351;
+}
+
+/* Emoji cards */
+
+.emoji-row {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 16px 0;
+}
+
+.emoji-card {
+  flex: 1;
+  background: #f4f6fb;
+  border-radius: 8px;
+  padding: 9px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.emoji-card:hover {
+  background: #e9edff;
+}
+
+.emoji-card.selected {
+  background: #4361ee;
+  color: white;
+  border: 1px solid #4361ee;
+}
+
+.emoji-icon {
+  font-size: 21px;
+  display: block;
+}
+
+.emoji-text {
+  font-size: 12px;
+}
+
+/* Comments */
+
+.feedback-form textarea {
+  width: 100%;
+  padding: 9px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  min-height: 80px;
+  resize: none;
+}
+
+/* Checkbox */
+
+.checkbox {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* Button */
+
+.feedback-form button {
+  width: 100%;
+  margin-top: 16px;
+  background: #4361ee;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background: #2f49c6;
+}
+
+/* Success */
+
+.feedback-success {
+  background: white;
+  padding: 28px;
+  width: 380px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.feedback-success h3 {
+  color: #28a745;
+}
+
+/* Footer */
+
+.feedback-footer {
+  text-align: center;
+  padding: 10px;
+  background: #253351;
+  color: white;
+  font-size: 12px;
+}
+
+

@@ -1,0 +1,100 @@
+.announcements-page {
+  font-family: "Segoe UI", sans-serif;
+  background: #f5f6fa;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg,#f5f6fa, #4dabf7, #f5f6fa);
+  color: rgb(10, 9, 9);
+}
+
+/* Highlight */
+.highlight {
+  padding: 40px;
+  text-align: center;
+}
+
+.highlight-card {
+  background: #f5f6fa;
+  padding: 20px;
+   margin: 30px auto;
+  max-width: 500px;
+  border-radius: 15px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Timeline */
+.timeline {
+  position: relative;
+  margin: 40px auto;
+  max-width: 700px;
+  padding-left: 20px;
+  border-left: 3px solid #0d6efd;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -11px;
+  top: 5px;
+  width: 15px;
+  height: 15px;
+  background: #0d6efd;
+  border-radius: 50%;
+}
+
+.timeline-content {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  margin-left: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Top Row */
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* NEW Badge */
+.new-badge {
+  background: red;
+  color: white;
+  padding: 3px 8px;
+  font-size: 0.7rem;
+  border-radius: 8px;
+}
+
+/* Category */
+.category {
+  display: inline-block;
+  background: #e7f1ff;
+  color: #0d6efd;
+  padding: 3px 10px;
+  border-radius: 10px;
+  font-size: 0.8rem;
+  margin: 8px 0;
+}
+
+/* Footer */
+.footer {
+  background: #253351;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
+
+.footer-links span {
+  margin: 0 10px;
+  cursor: pointer;
+}

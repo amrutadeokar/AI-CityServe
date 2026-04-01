@@ -1,0 +1,219 @@
+/* Reset */
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:'Poppins',sans-serif;
+}
+
+/* Body */
+body{
+  background:linear-gradient(135deg,#eef2f7,#d7dfea) ;
+  min-height:100vh;
+}
+
+/* Header */
+header{
+  width:100%;
+  padding:18px 40px;
+  background:#253351;
+  color:#fff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:100;
+}
+
+header h1{
+  font-size:22px;
+  font-weight:600;
+}
+
+header nav a{
+  color:#fff;
+  margin-left:25px;
+  text-decoration:none;
+  font-weight:500;
+  transition:0.3s;
+}
+
+header nav a:hover{
+  color:#4a90e2;
+}
+
+/* Footer */
+footer{
+  background:#253351;
+  color:#fff;
+  text-align:center;
+  padding:15px;
+  font-size:14px;
+  margin-top:60px;
+}
+
+/* Form Container */
+.form-container{
+  max-width:550px;
+  margin:70px auto;
+  padding:40px 35px;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.12);
+  transition:0.3s;
+}
+
+.form-container:hover{
+  transform:translateY(-4px);
+}
+
+/* Heading */
+.form-container h2{
+  text-align:center;
+  font-size:28px;
+  margin-bottom:25px;
+  color:#222;
+}
+
+/* Inputs */
+input[type="text"],
+textarea,
+input[type="file"]{
+  width:100%;
+  padding:14px 16px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px;
+  margin-bottom:22px;
+  transition:0.3s;
+}
+
+input:focus,
+textarea:focus{
+  border-color:#4a90e2;
+  box-shadow:0 0 8px rgba(74,144,226,0.3);
+}
+
+textarea{
+  min-height:130px;
+  resize:vertical;
+}
+
+/* File Upload */
+input[type="file"]{
+  border:2px dashed #ccc;
+  background:#f7f9fc;
+  cursor:pointer;
+}
+
+input[type="file"]:hover{
+  border-color:#4a90e2;
+}
+
+/* Location wrapper */
+.location-input-wrapper{
+  position:relative;
+  margin-bottom:22px;
+}
+
+.location-input-wrapper input{
+  padding-right:45px;
+}
+
+/* Map icon */
+.location-icon{
+  position:absolute;
+  right:15px;
+  top:50%;
+  transform:translateY(-50%);
+  font-size:22px;
+  color:#357abd;
+  cursor:pointer;
+}
+
+.location-icon:hover{
+  color:#1f5fa5;
+}
+
+/* Submit button */
+button[type="submit"]{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  font-size:17px;
+  font-weight:600;
+  color:#fff;
+  background:linear-gradient(90deg,#4a90e2,#357abd);
+  cursor:pointer;
+  transition:0.3s;
+}
+
+button[type="submit"]:hover{
+  background:linear-gradient(90deg,#357abd,#1f5fa5);
+  transform:translateY(-2px);
+}
+
+/* Map modal */
+.map-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+}
+
+.map-modal-content{
+  width:600px;
+  max-width:95%;
+  height:450px;
+  background:#fff;
+  border-radius:15px;
+  padding:15px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+
+/* Close button */
+.close-modal{
+  position:absolute;
+  right:15px;
+  top:8px;
+  border:none;
+  font-size:26px;
+  background:none;
+  cursor:pointer;
+}
+
+.close-modal:hover{
+  color:#e74c3c;
+}
+
+/* Map container */
+.gmaps-container{
+  flex:1;
+  border-radius:10px;
+  overflow:hidden;
+}
+
+/* Responsive */
+@media(max-width:600px){
+
+  header{
+    flex-direction:column;
+    align-items:flex-start;
+  }
+
+  .form-container{
+    margin:50px 15px;
+    padding:25px;
+  }
+
+  .map-modal-content{
+    height:380px;
+  }
+}

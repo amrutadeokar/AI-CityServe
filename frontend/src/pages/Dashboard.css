@@ -1,0 +1,478 @@
+/* ==========================================================================
+   GLOBAL
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: #ffff !important;
+  color: #1f2937;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 20px 20px 20px 20px !important;   /* controls space around cards */
+}
+/* ==========================================================================
+   LAYOUT
+   ========================================================================== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;   /* allow growth beyond viewport */
+  
+}
+
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  overflow-y: auto;   /* allow scrolling */
+  padding: 0;         /* remove any inner padding */
+  margin: 0;          /* remove outer margin */
+}
+
+.topbar {
+  background: #253351;
+  color: white;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.topbar h1 {
+  font-size: 19px;
+  font-weight: 600;
+}
+
+.topbar-actions button {
+  background: #ef4444;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.topbar-actions button:hover {
+  background: #dc2626;
+}
+
+.dashboard-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  width: 240px;
+  background: #253351 !important;
+  color: #e5e7eb;
+  padding: 20px 0;
+  flex-shrink: 0;
+  overflow-y: auto;
+
+  height: 100vh; 
+}
+
+.sidebar h2 {                       /* "Menu" */
+  font-size: 17px;
+  font-weight: 600;
+  padding: 0 24px 16px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-nav button {
+  background: none;
+  border: none;
+  color: #d1d5db !important;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 24px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.15s;
+}
+
+.sidebar-nav button:hover {
+  background: rgba(255,255,255,0.08);
+  color: white;
+}
+
+
+/* ==========================================================================
+   STAT CARDS (exactly like screenshot)
+   ========================================================================== */
+.stats-grid {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 32px;
+  margin-left: 5px !important;   /* moves cards slightly to the right */
+}
+
+.stat-card {
+  width: 150px;
+  height: 148px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: rgb(13, 12, 12);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+  transition: transform 0.2s;
+}
+
+.stat-card:hover {
+  transform: translateY(-3px);
+}
+
+.stat-card .icon {
+  font-size: 30px;
+  margin-bottom: 8px;
+}
+
+.stat-card .count {
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-card .label {
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0.94;
+}
+
+/* Very close gradient matches */
+.stat-card:nth-child(1) { background: linear-gradient(135deg, #f4e6f2 0%, #ebc2e7 85%); }   /* purple */
+.stat-card:nth-child(2) { background: linear-gradient(135deg, #e1edf0  0%, #b8dee6 85%); color: #713f12; }   /* yellow */
+.stat-card:nth-child(3) { background: linear-gradient(135deg, #f0eee0  0%, #efeac2 85%); }   /* green */
+
+/* ==========================================================================
+   THREE BOTTOM CARDS (Announcements / Feedback / City Data)
+   ========================================================================== */
+
+/* ── The three cards container ── */
+.info-section {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 40px;
+}
+
+.info-card {
+  background: rgb(246, 245, 243);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  min-height: 160px;
+  max-height: 210px;           /* keep cards compact like screenshot */
+  display: flex;
+  flex-direction: column;
+}
+
+.info-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: rgb(242, 240, 240);
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 16px;
+  font-weight: 700;
+  color: #1e40af;
+  flex-shrink: 0;
+}
+
+.info-header span {
+  font-size: 26px;
+}
+
+.info-content {
+  padding: 14px 18px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: 14.5px;
+  color: #374151;
+}
+
+/* Buttons container - horizontal layout */
+.info-content .buttons-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+/* Container for side-by-side buttons */
+.buttons-container {
+  display: flex;
+  flex-direction: row;        /* horizontal */
+  gap: 12px;                  /* space between buttons */
+  flex-wrap: wrap;            /* if screen is very narrow, they stack */
+  margin-top: 8px;
+}
+.feedback-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;                    /* space between buttons */
+  margin-top: 10px;
+  flex-wrap: wrap;            /* force side-by-side, no stacking */
+    width: 100%;
+}
+
+.card-btn {
+  padding: 8px 12px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;     /* keep text in one line */
+  transition: background-color 0.2s;
+}
+
+.card-btn:hover {
+  background-color: #1d4ed8;
+}
+/* Bar chart placeholder - force visibility */
+.city-snapshot-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  width: 100%;
+  min-height: 120px;          /* ensures row has height */
+}
+
+.city-text {
+  flex: 1 1 40%;
+  min-width: 160px;
+}
+
+.city-text p {
+  margin: 0 0 8px 0;
+  font-size: 14.5px;
+  color: #374151;
+}
+
+.bar-chart-placeholder {
+  flex: 0 0  75%;
+  min-width: 120px;          /* slightly wider for clarity */
+  height: 160px;             /* balanced height */
+  border-radius: 0px;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;       /* vertical centering */
+  justify-content: center;   /* horizontal centering */
+  padding: 0px;              /* small inner spacing */
+}
+
+.chart-img {
+  width: auto;
+  height: 90%;
+  max-width: 100%;
+
+  margin-bottom: 260px;
+  margin-right: 300px;
+  margin-top: 100px;
+
+}
+
+/* ==========================================================================
+   RECENT COMPLAINTS & PERFORMANCE METRICS
+   ========================================================================== */
+
+.complaints-metrics-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;   /* side by side */
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.info-card.complaints-section,
+.info-card.metrics-section {
+  background: rgb(246, 245, 243);
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.09);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* Headers (same as announcements) */
+.dashboard .info-card .info-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #ffff;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1e40af;
+}
+
+.info-card .info-header span {
+  font-size: 32px;
+}
+
+/* Content (tightened spacing so text isn’t pushed down) */
+.info-card .info-content {
+  padding: 8px 4px !important;
+  font-size: 14px;
+  color: #374151;
+}
+.complaints-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.complaints-list li {
+  padding: 2px 14px;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom:5px;
+}
+.complaints-list li:last-child {
+  border-bottom: none;
+}
+
+.pending  { color: #d97706; font-weight: 600; }
+.resolved { color: #15803d; font-weight: 600; }
+
+/* Metrics grid */
+.metrics-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-card {
+  background: #f9fafb;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 13.5px;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;        /* reduce spacing so they’re closer */
+  width: 100%;             /* span full width of page */
+  justify-content: space-between; /* spread evenly side by side */
+}
+
+.action-btn {
+  flex: 1;                 /* equal width */
+  min-width: 0;            /* allow shrinking */
+  background: #f9fafb;     /* announcement-style background */
+  color: #1e40af;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+}
+
+.action-btn:hover {
+  background: #e0e7ff;
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   FLOATING HELP BUTTON
+   ========================================================================== */
+.floating-chat-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 56px;
+  height: 56px;
+  background: #3f51b5;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  font-size: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.2s;
+}
+
+.floating-chat-btn:hover {
+  background: #303f9f;
+  transform: scale(1.06);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+  background: #253351;
+  color: #d1d5db;
+  text-align: center;
+  padding: 12px;
+  font-size: 13px;
+  margin-top: auto;
+}
+
+/* Small responsive fallback */
+@media (max-width: 1100px) {
+  .info-section {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 200px;
+  }
+  .stats-grid, .info-section {
+    flex-direction: column;
+  }
+}

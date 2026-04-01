@@ -1,0 +1,546 @@
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background-color: #f3f4f6;
+}
+
+.login-page {
+  min-height: 100vh;
+  /* Creates the dark blue top half and grey bottom half */
+  background: linear-gradient(to bottom, #253351 45%, #f3f4f6 45%);
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 60px;
+  color: white;
+  background-color: #1d283e;   /* ✅ deep navy header */
+}
+
+.nav-bar h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.nav-links {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.nav-links a, .profile-btn, .dropdown {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Hero */
+.hero-section {
+  text-align: center;
+  color: white;
+  padding: 100px 70px;
+}
+
+.hero-section h2 {
+  font-size: 30px;   /* ✅ smaller tagline */
+  margin-bottom: 15px;   /* ✅ more breathing room */
+}
+
+.hero-section p {
+  font-size: 16px;
+  margin-bottom: 5px;   /* ✅ extra spacing before search bar */
+}
+
+
+/* Exact Search Bar Match */
+.search-bar {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: stretch !important; /* Ensures input and button are same height */
+  margin: 30px auto 0 auto !important;
+  max-width: 400px !important;
+  
+  background: transparent !important; /* Removes the white box behind the bar */
+  box-shadow: none !important; /* Removes any shadow from the container */
+}
+
+.search-bar input {
+  flex: 1 !important;
+  padding: 0 15px !important;
+  height: 45px !important; /* Specific height from the image */
+  border: 1px solid #ccc !important;
+  border-right: none !important; /* Removes double border between input and button */
+  border-radius: 4px 0 0 4px !important;
+  outline: none !important;
+  font-size: 14px !important;
+  background-color: white !important;
+}
+
+.search-btn {
+  background-color: #3b82f6 !important; /* The royal blue from the image */
+  color: white !important;
+  border: 1px solid #3b82f6 !important;
+  padding: 0 25px !important;
+  height: 45px !important;
+  border-radius: 0 4px 4px 0 !important;
+  font-weight: 500 !important;
+  font-size: 14px !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.search-btn:hover {
+  background-color: #2563eb !important;
+}
+/* Dashboard Container */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  padding: 40px 20px;
+}
+
+.white-card-container {
+  width: 100%;
+  max-width: 950px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+.info-wrapper {
+  margin-top: 80px;   /* pushes announcements/help/feedback/chat down */
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+  width: 100%;
+  max-width: 950px;
+}
+
+/* Card styling */
+.info-card {
+  background: #ffff !important;
+  padding: 25px;
+  border-radius: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.info-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+/* Icon circle */
+.info-icon.blue-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eff6ff;
+  color: #3b82f6;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+/* Text block */
+.info-text h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.info-text p {
+  margin: 6px 0 0 0;
+  font-size: 14px;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.chat-bar-full {
+  grid-column: span 2;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 18px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.chat-bar-full:hover {
+  background-color: #303f9f;
+}
+
+/* Overlay with blur + dark tint */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+
+  animation: fadeIn 0.25s ease-in-out;
+}
+
+/* Popup Card (Wider + Less Height) */
+.popup-box {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+
+  padding: 22px 26px;              /* reduced height */
+  border-radius: 16px;
+  text-align: center;
+
+  max-width: 420px;                /* increased width */
+  width: 92%;
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+  animation: scaleUp 0.25s ease;
+
+  position: relative;
+}
+
+/* Close button */
+.popup-close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 18px;
+  cursor: pointer;
+  color: #64748b;
+  transition: 0.2s;
+}
+
+.popup-close:hover {
+  color: #ef4444;
+  transform: rotate(90deg);
+}
+
+/* Icon */
+.popup-icon {
+  font-size: 34px;
+  margin-bottom: 6px;              /* reduced spacing */
+}
+
+/* Title */
+.popup-box h2 {
+  margin-bottom: 6px;              /* reduced spacing */
+  font-size: 20px;
+  font-weight: 700;
+  color: #1e293b;
+}
+
+/* Subtitle */
+.popup-box p {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 16px;             /* reduced spacing */
+  line-height: 1.4;
+}
+
+/* Buttons container */
+.popup-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Buttons */
+.popup-btn {
+  flex: 1;                         /* equal width buttons */
+  padding: 10px 22px;              /* reduced height */
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+
+  transition: all 0.25s ease;
+}
+
+/* Primary button */
+.popup-btn.primary {
+  background: linear-gradient(135deg, #4361ee, #3a0ca3);
+  color: white;
+}
+
+.popup-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(67, 97, 238, 0.35);
+}
+
+/* Secondary button */
+.popup-btn.secondary {
+  background: #e2e8f0;
+  color: #1e293b;
+}
+
+.popup-btn.secondary:hover {
+  background: #cbd5f5;
+  transform: translateY(-1px);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* 🚨 SOS BUTTON */
+.sos-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: red;
+  color: white;
+  border: none;
+  padding: 15px 18px;
+  border-radius: 50px;
+  font-weight: bold;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 8px 20px rgba(255,0,0,0.4);
+}
+
+.sos-button:hover {
+  background: darkred;
+}
+
+/* Overlay */
+.sos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+/* Overlay */
+.sos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+
+
+/* 🌑 Overlay */
+.sos-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(15, 23, 42, 0.75);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* 🚨 Popup */
+.sos-popup {
+  background: linear-gradient(135deg, #ffffff, #f8fafc);
+  padding: 40px;
+  border-radius: 22px;
+  width: 480px;              /* 🔥 BIGGER */
+  max-width: 92%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+  animation: popupZoom 0.35s ease;
+}
+
+/* ✨ Animation */
+@keyframes popupZoom {
+  from {
+    transform: scale(0.85) translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ❌ Close */
+.close-btn {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #9ca3af;
+  transition: 0.2s;
+}
+
+.close-btn:hover {
+  color: #111827;
+  transform: rotate(90deg);
+}
+
+/* 🚨 Heading */
+.sos-popup h3 {
+  font-size: 24px;
+  margin-bottom: 25px;
+  color: #111827;
+  letter-spacing: 0.5px;
+}
+
+/* 🚓 Emergency Cards */
+.sos-item {
+  margin: 18px 0;
+  font-size: 17px;
+  background: #ffffff;
+  padding: 14px 18px;
+  border-radius: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  transition: 0.25s;
+}
+
+.sos-item:hover {
+  transform: translateY(-2px);
+  background: #eef2ff;
+}
+
+.sos-item a {
+  background: #2563eb;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+/* ➖ Divider */
+.sos-popup hr {
+  margin: 30px 0;
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e7eb, transparent);
+}
+
+/* 📍 Location Section */
+.user-location {
+  font-size: 15px;
+  color: #1f2937;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: linear-gradient(135deg, #f1f5f9, #e0f2fe);
+  border-radius: 14px;
+  line-height: 1.6;
+  box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+}
+
+/* 🚓 Police Link */
+.sos-link {
+  display: block;
+  margin: 15px 0;
+  padding: 12px;
+  background: linear-gradient(135deg, #eff6ff, #dbeafe);
+  border-radius: 12px;
+  color: #1d4ed8;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.sos-link:hover {
+  background: #bfdbfe;
+  transform: scale(1.03);
+}
+
+/* 📤 Share Button */
+.share-btn {
+  margin-top: 15px;
+  padding: 14px;
+  width: 100%;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.share-btn:hover {
+  transform: scale(1.05);
+}
+
+/* 🔴 OPTIONAL: Pulse effect for SOS feel */
+.sos-popup::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 25px;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  animation: pulse 2s infinite;
+  pointer-events: none; /* ✅ allow clicks through */
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.6; }
+  70% { transform: scale(1.05); opacity: 0; }
+  100% { transform: scale(1); opacity: 0; }
+}
